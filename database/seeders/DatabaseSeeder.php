@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Fake ข้อมูล 3 ตัวสำหรับ Category
-        Category::factory(3)->create();
+        Category::factory(4)->create();
 
         // Fake ข้อมูล 3 ตัวสำหรับ JobType
-        JobType::factory(3)->create();
+        JobType::factory(4)->create();
 
         // Fake ข้อมูล 3 ตัวสำหรับ User
         User::factory(3)->create();

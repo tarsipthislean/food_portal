@@ -5,13 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 col-md-10 ">
-                    <h2>Find Jobs</h2>
+                    <h2>ค้นหาสูตรอาหาร</h2>
                 </div>
                 <div class="col-6 col-md-2">
                     <div class="align-end">
                         <select name="sort" id="sort" class="form-control">
-                            <option value="1" {{ \Request::get('sort') == '1' ? 'selected' : '' }}>Latest</option>
-                            <option value="0" {{ \Request::get('sort') == '0' ? 'selected' : '' }}>Oldest</option>
+                            <option value="1" {{ \Request::get('sort') == '1' ? 'selected' : '' }}>ล่าสุด</option>
+                            <option value="0" {{ \Request::get('sort') == '0' ? 'selected' : '' }}>เก่าแก่ที่สุด</option>
                         </select>
                     </div>
                 </div>
@@ -22,21 +22,21 @@
                     <form action="" name="searchForm" id="searchForm">
                         <div class="card border-0 shadow p-4">
                             <div class="mb-4">
-                                <h2>Keywords</h2>
+                                <h2>คีย์เวิร์ดสูตรอาหาร</h2>
                                 <input value="{{ \Request::get('keyword') }}" type="text" name="keyword" id="keyword"
-                                    placeholder="Keywords" class="form-control">
+                                    placeholder="คีย์เวิร์ดอาหาร" class="form-control">
                             </div>
 
                             <div class="mb-4">
-                                <h2>Location</h2>
+                                <h2>ที่อยู่สูตรอาหาร</h2>
                                 <input value="{{ \Request::get('location') }}" type="text" name="location" id="location"
-                                    placeholder="Location" class="form-control">
+                                    placeholder="ต้นกำเนิดอาหาร เช่น บุรีรัมย์" class="form-control">
                             </div>
 
                             <div class="mb-4">
-                                <h2>Category</h2>
+                                <h2>หมวดหมู่สูตรอาหาร</h2>
                                 <select name="category" id="category" class="form-control">
-                                    <option value="">Select a Category</option>
+                                    <option value="">เลือกหมวดหมู่</option>
                                     @if ($categories->isNotEmpty())
                                         @foreach ($categories as $category)
                                             <option {{ \Request::get('category') == $category->id ? 'selected' : '' }}
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <h2>Job Type</h2>
+                                <h2>ประเภทสูตรอาหาร</h2>
 
                                 @if ($jobTypes->isNotEmpty())
                                     @foreach ($jobTypes as $jobType)
@@ -64,9 +64,9 @@
                             </div>
 
                             <div class="mb-4">
-                                <h2>Experience</h2>
+                                <h2>อายุสูตรอาหาร</h2>
                                 <select name="experience" id="experience" class="form-control">
-                                    <option value="">Select Experience</option>
+                                    <option value="">เลือกอายุสูตรอาหาร</option>
                                     <option value="1" {{ \Request::get('experience') == 1 ? 'selected' : '' }}>1
                                         Year</option>
                                     <option value="2" {{ \Request::get('experience') == 2 ? 'selected' : '' }}>2
@@ -92,8 +92,8 @@
                                     </option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Search</button>
-                            <a href="{{ route('jobs') }}" class="btn btn-primary mt-3">Reset</a>
+                            <button type="submit" class="btn btn-primary">ค้นหาสูตรอาหาร</button>
+                            <a href="{{ route('jobs') }}" class="btn btn-primary mt-3">รีเฟรช</a>
                         </div>
                     </form>
                 </div>
@@ -129,7 +129,7 @@
                                                     <!-- Details Button -->
                                                     <div class="d-grid mt-3">
                                                         <a href="{{ route('jobDetail', $job->id) }}"
-                                                            class="btn btn-primary btn-lg">Details</a>
+                                                            class="btn btn-primary btn-lg">รายละเอียด</a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>CareerVibe | Find Best Jobs</title>
+    <title>BruGroup | Find Best Foods</title>
     <meta name="description" content="" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">JakatarVibe</a>
+                <a class="navbar-brand" href="{{ route('home') }}">BruGroup</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -29,21 +29,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-0 ms-sm-0 me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link  font-extrabold" aria-current="page" href="{{ route('home') }}">หน้าหลัก</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('jobs') }}">Find Jobs</a>
+                            <a class="nav-link font-extrabold" aria-current="page" href="{{ route('jobs') }}">ค้นหาอาหาร</a>
                         </li>
                     </ul>
 
                     @if (!Auth::check())
                         <a class="btn btn-outline-primary me-2" href="{{ route('account.login') }}"
-                            type="submit">Login</a>
+                            type="submit">ลงชื่อเข้าใช้</a>
                     @else
                         <a class="btn btn-outline-primary me-2" href="{{ route('account.profile') }}"
-                            type="submit">Account</a>
+                            type="submit">บัญชีของฉัน</a>
                     @endif
-                    <a class="btn btn-primary" href="{{ route('account.createJob') }}" type="submit">Post a Job</a>
+                    <a class="btn btn-primary" href="{{ route('account.createJob') }}" type="submit">โพสต์สูตรอาหาร</a>
                 </div>
             </div>
         </nav>

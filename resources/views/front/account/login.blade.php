@@ -20,11 +20,11 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-5">
                     <div class="card shadow border-0 p-5">
-                        <h1 class="h3">Login</h1>
+                        <h1 class="h3">ลงชื่อเข้าใช้</h1>
                         <form action="{{ route('account.authenticate') }}" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label for="" class="mb-2">Email*</label>
+                                <label for="" class="mb-2">อีเมลล์*</label>
                                 <input type="text" value="{{ old('email') }}" name="email"
                                     id="email"class="form-control @error('email') is-invalid @enderror"
                                     placeholder="example@example.com">
@@ -35,9 +35,9 @@
 
                             </div>
                             <div class="mb-3">
-                                <label for="" class="mb-2">Password*</label>
+                                <label for="" class="mb-2">รหัสผ่าน*</label>
                                 <input type="password" name="password" id="password"
-                                    class="form-control @error('password') is-invalid @enderror"placeholder="Enter Password">
+                                    class="form-control @error('password') is-invalid @enderror"placeholder="ระบุรหัสผ่าน">
 
                                 @error('password')
                                     <p class ="invalid-feedback">{{ $message }}</p>
@@ -45,13 +45,13 @@
 
                             </div>
                             <div class="justify-content-between d-flex">
-                                <button class="btn btn-primary mt-2">Login</button>
-                                <a href="forgot-password.html" class="mt-3">Forgot Password?</a>
+                                <button class="btn btn-primary mt-2">เข้าสู่ระบบ</button>
+                                <a class="mt-3">ลืมรหัสผ่าน?</a>
                             </div>
                         </form>
                     </div>
                     <div class="mt-4 text-center">
-                        <p>Do not have an account? <a href="{{ route('accont.registration') }}">Register</a></p>
+                        <p>คุณยังไม่มีบัญชีใช่ไหม ? <a href="{{ route('accont.registration') }}">ลงทะเบียน</a></p>
                     </div>
                 </div>
             </div>

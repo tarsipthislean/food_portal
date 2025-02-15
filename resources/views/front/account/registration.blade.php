@@ -7,33 +7,33 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-5">
                     <div class="card shadow border-0 p-5">
-                        <h1 class="h3">Register</h1>
+                        <h1 class="h3">ลงทะเบียนผู้ใช้</h1>
                         <form action="" name="registrationForm" id="registrationForm">
                             <div class="mb-3">
-                                <label for="name" class="mb-2">Name*</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+                                <label for="name" class="mb-2">ชื่อผู้ใช้*</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="ชื่อผู้ใช้">
                                 <p></p>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="mb-2">Email*</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email">
+                                <label for="email" class="mb-2">อีเมลล์*</label>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="อีเมลล์">
                                 <p></p>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="mb-2">Password*</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+                                <label for="password" class="mb-2">รหัสผ่าน*</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="รหัสผ่าน">
                                 <p></p>
                             </div>
                             <div class="mb-3">
-                                <label for="password_confirmation" class="mb-2">Confirm Password*</label>
-                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Enter Password">
+                                <label for="password_confirmation" class="mb-2">ยืนยันรหัสผ่าน*</label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="ยืนยันรหัสผ่าน">
                                 <p></p>
                             </div>
-                            <button class="btn btn-primary mt-2">Register</button>
+                            <button class="btn btn-primary mt-2">ลงทะเบียน</button>
                         </form>
                     </div>
                     <div class="mt-4 text-center">
-                        <p>Have an account? <a href="{{ route('account.login') }}">Login</a></p>
+                        <p>คุณมีบัญชีแล้ว? <a href="{{ route('account.login') }}">เข้าสู่ระบบ</a></p>
                     </div>
                 </div>
             </div>
