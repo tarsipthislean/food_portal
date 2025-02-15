@@ -54,7 +54,7 @@
         <div class="container">
             <h2>Popular Categories</h2>
             <div class="row pt-5">
-
+    
                 @if ($categories->isNotEmpty())
                     @foreach ($categories as $category)
                         <div class="col-lg-4 col-xl-3 col-md-6">
@@ -62,7 +62,8 @@
                                 <a href="{{ route('jobs'). '?category='. $category->id }}">
                                     <h4 class="pb-2">{{ $category->name }}</h4>
                                 </a>
-                                <p class="mb-0"> <span>0</span> Available position</p>
+                                <!-- แสดงจำนวนตำแหน่งงานที่เปิดรับ -->
+                                <p class="mb-0"> <span>{{ $category->available_positions }}</span> Available position</p>
                             </div>
                         </div>
                     @endforeach
@@ -70,10 +71,11 @@
             </div>
         </div>
     </section>
+    
 
-    <section class="section-3  py-5">
+    <section class="section-3 py-5">
         <div class="container">
-            <h2>Featured Jobs</h2>
+            <h2>Featured Foods</h2>
             <div class="row pt-5">
                 <div class="job_listing_area">
                     <div class="job_lists">
@@ -83,33 +85,27 @@
                                     <div class="col-md-4">
                                         <div class="card border-0 p-3 shadow mb-4">
                                             <div class="card-body">
-                                                <h3 class="border-0 fs-5 pb-2 mb-0">{{ $featuredJob->title }}</h3>
-
+                                                <h3 class="border-0 fs-5 pb-2 mb-0 fw-bolder" style="font-weight: 800;">{{ $featuredJob->title }}</h3>
+    
                                                 <p>{{ Str::words($featuredJob->description, 5) }}</p>
-
+    
+                                                <!-- แสดงภาพจาก job_image -->
                                                 <div class="bg-light p-3 border">
-                                                    <p class="mb-0">
-                                                        <span class="fw-bolder"><i class="fa fa-map-marker"></i></span>
-                                                        <span class="ps-1">{{ $featuredJob->location }}</span>
-                                                    </p>
-                                                    <p class="mb-0">
-                                                        <span class="fw-bolder"><i class="fa fa-clock-o"></i></span>
-                                                        <span class="ps-1">{{ $featuredJob->jobType->name }}</span>
-                                                    </p>
-
-                                                    @if ($featuredJob->salary !== null && $featuredJob->salary !== '')
-                                                        <p class="mb-0">
-                                                            <span class="fw-bolder"><i class="fa fa-usd"></i></span>
-                                                            <span class="ps-1">{{ $featuredJob->salary }}</span>
-                                                        </p>
-                                                    @endif
-
-
+                                                    <div class="image-container">
+                                                        <!-- แสดงภาพ job_image -->
+                                                        @if($featuredJob->job_image)
+                                                            <img src="{{ asset($featuredJob->job_image) }}" alt="Job Image" 
+                                                                 class="img-fluid" 
+                                                                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                                                        @else
+                                                            <span>No image available</span>
+                                                        @endif
+                                                    </div>
                                                 </div>
-
+    
                                                 <div class="d-grid mt-3">
                                                     <a href="{{ route('jobDetail', $featuredJob->id) }}"
-                                                        class="btn btn-primary btn-lg">Details</a>
+                                                       class="btn btn-primary btn-lg">Details</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,10 +118,13 @@
             </div>
         </div>
     </section>
+    
+    
+    
 
     <section class="section-3 bg-2 py-5">
         <div class="container">
-            <h2>Latest Jobs</h2>
+            <h2>Latest Foods</h2>
             <div class="row pt-5">
                 <div class="job_listing_area">
                     <div class="job_lists">
@@ -135,47 +134,40 @@
                                     <div class="col-md-4">
                                         <div class="card border-0 p-3 shadow mb-4">
                                             <div class="card-body">
-                                                <h3 class="border-0 fs-5 pb-2 mb-0">{{ $latestJob->title }}</h3>
-
+                                                <h3 class="border-0 fs-5 pb-2 mb-0 fw-bolder" style="font-weight: 800;">{{ $latestJob->title }}</h3>
+    
                                                 <p>{{ Str::words($latestJob->description, 5) }}</p>
-
+    
+                                                <!-- แสดงภาพจาก job_image -->
                                                 <div class="bg-light p-3 border">
-                                                    <p class="mb-0">
-                                                        <span class="fw-bolder"><i class="fa fa-map-marker"></i></span>
-                                                        <span class="ps-1">{{ $latestJob->location }}</span>
-                                                    </p>
-                                                    <p class="mb-0">
-                                                        <span class="fw-bolder"><i class="fa fa-clock-o"></i></span>
-                                                        <span class="ps-1">{{ $latestJob->jobType->name }}</span>
-                                                    </p>
-
-                                                    @if ($latestJob->salary !== null && $latestJob->salary !== '')
-                                                        <p class="mb-0">
-                                                            <span class="fw-bolder"><i class="fa fa-usd"></i></span>
-                                                            <span class="ps-1">{{ $latestJob->salary }}</span>
-                                                        </p>
-                                                    @endif
-
-
+                                                    <div class="image-container">
+                                                        <!-- แสดงภาพ job_image -->
+                                                        @if($latestJob->job_image)
+                                                            <img src="{{ asset($latestJob->job_image) }}" alt="Job Image" 
+                                                                 class="img-fluid" 
+                                                                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                                                        @else
+                                                            <span>No image available</span>
+                                                        @endif
+                                                    </div>
                                                 </div>
 
+    
                                                 <div class="d-grid mt-3">
                                                     <a href="{{ route('jobDetail', $latestJob->id) }}"
-                                                        class="btn btn-primary btn-lg">Details</a>
+                                                       class="btn btn-primary btn-lg">Details</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             @endif
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
 @endsection

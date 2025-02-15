@@ -102,45 +102,47 @@
                         <div class="job_lists">
                             <div class="row">
                                 @if ($jobs->isNotEmpty())
-                                @foreach ($jobs as $job)
-                                    <div class="col-md-4">
-                                        <div class="card border-0 p-3 shadow mb-4">
-                                            <div class="card-body">
-                                                <h3 class="border-0 fs-5 pb-2 mb-0">{{ $job->title }}</h3>
-                                                <p>{{ Str::words($job->description, $words = 10, '...') }}</p>
-                                                <div class="bg-light p-3 border">
-                                                    <p class="mb-0">
-                                                        <span class="fw-bolder"><i class="fa fa-map-marker"></i></span>
-                                                        <span class="ps-1">{{ $job->location }}</span>
-                                                    </p>
-                                                    <p class="mb-0">
-                                                        <span class="fw-bolder"><i class="fa fa-clock-o"></i></span>
-                                                        <span class="ps-1">{{ $job->jobType->name }}</span>
-                                                    </p>
-                                                    <p>Keywords: {{ $job->keywords }}</p>
-                                                    <p>Category: {{ $job->category->name }}</p>
-                                                    <p>Experience: {{ $job->experience }}</p>
-                                                    @if ($job->salary !== null && $job->salary !== '')
-                                                        <p class="mb-0">
-                                                            <span class="fw-bolder"><i class="fa fa-usd"></i></span>
-                                                            <span class="ps-1">{{ $job->salary }}</span>
-                                                        </p>
-                                                    @endif
-                                                </div>
-                                                <div class="d-grid mt-3">
-                                                    <a href="{{ route('jobDetail', $job->id) }}" class="btn btn-primary btn-lg">Details</a>
+                                    @foreach ($jobs as $job)
+                                        <div class="col-md-4">
+                                            <div class="card border-0 p-3 shadow mb-4">
+                                                <div class="card-body">
+                                                    <!-- Title -->
+                                                    <h3 class="border-0 fs-5 pb-2 mb-0 fw-bolder" style="font-weight: 800;">
+                                                        {{ $job->title }}</h3>
+
+                                                    <!-- Description -->
+                                                    <p>{{ Str::words($job->description, $words = 10, '...') }}</p>
+
+                                                    <!-- Job Image -->
+                                                    <div class="bg-light p-3 border">
+                                                        <div class="image-container">
+                                                            @if ($job->job_image)
+                                                                <img src="{{ asset($job->job_image) }}" alt="Job Image"
+                                                                    class="img-fluid"
+                                                                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                                                            @else
+                                                                <span>No image available</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Details Button -->
+                                                    <div class="d-grid mt-3">
+                                                        <a href="{{ route('jobDetail', $job->id) }}"
+                                                            class="btn btn-primary btn-lg">Details</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                <div class="col-md-12">Job not found</div>
-                            @endif                            
+                                    @endforeach
+                                @else
+                                    <div class="col-md-12">Job not found</div>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

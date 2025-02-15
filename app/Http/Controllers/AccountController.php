@@ -200,7 +200,7 @@ class AccountController extends Controller
             'vacancy' => 'required|integer',
             'location' => 'required|max:50',
             'description' => 'required',
-            'company_name' => 'required|min:3|max:75',
+            'company_name' => 'required|min:1|max:75',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ตรวจสอบไฟล์รูปภาพ
         ];
     
@@ -285,13 +285,13 @@ class AccountController extends Controller
     public function updateJob(Request $request, $id)
     {
         $rules = [
-            'title' => 'required|min:10|max:200',
+            'title' => 'required|min:1|max:200',
             'category' => 'required',
             'jobType' => 'required',
             'vacancy' => 'required|integer',
             'location' => 'required|max:50',
             'description' => 'required',
-            'company_name' => 'required|min:3|max:75',
+            'company_name' => 'required|min:1|max:75',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ตรวจสอบไฟล์รูปภาพ
         ];
     

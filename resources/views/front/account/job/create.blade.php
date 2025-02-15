@@ -127,16 +127,14 @@
                                         class="form-control">
                                 </div>
 
-
-                                <!-- Image Upload -->
                                 <div class="mb-4">
                                     <label for="" class="mb-2">Image</label>
-                                    <input type="file" name="image" class="form-control" id="imageInput"
-                                        onchange="previewImage(event)">
+                                    <input type="file" name="image" class="form-control" id="imageInput" onchange="previewImage(event)">
                                     <!-- แสดงตัวอย่างภาพที่เลือก -->
-                                    <img id="imagePreview" src="#" alt="Image Preview"
-                                        style="max-width: 200px; max-height: 200px; object-fit: cover; margin-top: 10px;">
+                                    <img id="imagePreview" src="#" alt="Image Preview" 
+                                         style="width: 300px; height: 300px; object-fit: cover; margin-top: 10px;">
                                 </div>
+                                
 
 
                                 <h3 class="fs-4 mb-1 mt-5 border-top pt-5">Credit Details</h3>
@@ -168,86 +166,107 @@
 @endsection
 
 @section('customJs')
-<script type="text/javascript">
-    // ฟังก์ชันแสดงตัวอย่างภาพที่เลือก
-    function previewImage(event) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const output = document.getElementById('imagePreview');
-            output.src = reader.result;  // กำหนดให้แสดงตัวอย่างภาพที่เลือก
+    <script type="text/javascript">
+        // ฟังก์ชันแสดงตัวอย่างภาพที่เลือก
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('imagePreview');
+                output.src = reader.result; // กำหนดให้แสดงตัวอย่างภาพที่เลือก
+            }
+            reader.readAsDataURL(event.target.files[0]); // อ่านไฟล์ที่เลือก
         }
-        reader.readAsDataURL(event.target.files[0]);  // อ่านไฟล์ที่เลือก
-    }
 
-    $("#createJobForm").submit(function(e) {
-        e.preventDefault();
-        $("button[type='submit']").prop('disabled', true);
-        $.ajax({
-            url: '{{ route('account.saveJob') }}',
-            type: 'POST',
-            dataType: 'json',
-            data: new FormData($("#createJobForm")[0]), // ส่งข้อมูลฟอร์มรวมถึงไฟล์
-            contentType: false,  // ไม่ต้องส่ง Content-Type
-            processData: false,  // ไม่ต้องแปลงข้อมูล
-            success: function(response) {
-                $("button[type='submit']").prop('disabled', false);
+        $("#createJobForm").submit(function(e) {
+            e.preventDefault();
+            $("button[type='submit']").prop('disabled', true);
+            $.ajax({
+                url: '{{ route('account.saveJob') }}',
+                type: 'POST',
+                dataType: 'json',
+                data: new FormData($("#createJobForm")[0]), // ส่งข้อมูลฟอร์มรวมถึงไฟล์
+                contentType: false, // ไม่ต้องส่ง Content-Type
+                processData: false, // ไม่ต้องแปลงข้อมูล
+                success: function(response) {
+                    $("button[type='submit']").prop('disabled', false);
 
-                if (response.status == true) {
-                    $('#title').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    $('#category').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    $('#jobType').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    $('#vacancy').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    $('#location').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    $('#description').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    $('#company_name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    window.location.href = "{{ route('account.myJobs') }}";
-                } else {
-                    var error = response.errors;
-
-                    if (error.title) {
-                        $('#title').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.title);
+                    if (response.status == true) {
+                        $('#title').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        $('#category').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        $('#jobType').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        $('#vacancy').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        $('#location').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        $('#description').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        $('#company_name').removeClass('is-invalid').siblings('p').removeClass(
+                            'invalid-feedback').html('');
+                        window.location.href = "{{ route('account.myJobs') }}";
                     } else {
-                        $('#title').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    }
+                        var error = response.errors;
 
-                    if (error.category) {
-                        $('#category').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.category);
-                    } else {
-                        $('#category').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    }
+                        if (error.title) {
+                            $('#title').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.title);
+                        } else {
+                            $('#title').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
 
-                    if (error.jobType) {
-                        $('#jobType').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.jobType);
-                    } else {
-                        $('#jobType').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    }
+                        if (error.category) {
+                            $('#category').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.category);
+                        } else {
+                            $('#category').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
 
-                    if (error.vacancy) {
-                        $('#vacancy').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.vacancy);
-                    } else {
-                        $('#vacancy').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    }
+                        if (error.jobType) {
+                            $('#jobType').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.jobType);
+                        } else {
+                            $('#jobType').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
 
-                    if (error.location) {
-                        $('#location').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.location);
-                    } else {
-                        $('#location').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    }
+                        if (error.vacancy) {
+                            $('#vacancy').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.vacancy);
+                        } else {
+                            $('#vacancy').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
 
-                    if (error.description) {
-                        $('#description').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.description);
-                    } else {
-                        $('#description').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
-                    }
+                        if (error.location) {
+                            $('#location').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.location);
+                        } else {
+                            $('#location').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
 
-                    if (error.company_name) {
-                        $('#company_name').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(error.company_name);
-                    } else {
-                        $('#company_name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html('');
+                        if (error.description) {
+                            $('#description').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.description);
+                        } else {
+                            $('#description').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
+
+                        if (error.company_name) {
+                            $('#company_name').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.company_name);
+                        } else {
+                            $('#company_name').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
                     }
                 }
-            }
+            });
         });
-    });
-</script>
+    </script>
 @endsection
