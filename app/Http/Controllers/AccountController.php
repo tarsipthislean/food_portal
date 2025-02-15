@@ -216,13 +216,12 @@ class AccountController extends Controller
             $job->job_type_id = $request->jobType;
             $job->user_id = Auth::user()->id;
             $job->vacancy = $request->vacancy;
-            // ลบการกำหนดค่า salary ออก
             //$job->salary = $request->salary; 
             $job->location = $request->location;
             $job->description = $request->description;
             $job->benefits = $request->benefits;
-            $job->responsibility = $request->responsibility;
-            $job->qualifications = $request->qualifications;
+            //$job->responsibility = $request->responsibility;
+            //$job->qualifications = $request->qualifications;
             $job->keywords = $request->keywords;
             $job->experience = $request->experience;
             $job->company_name = $request->company_name;
@@ -312,8 +311,8 @@ class AccountController extends Controller
             $job->location = $request->location;
             $job->description = $request->description;
             $job->benefits = $request->benefits;
-            $job->responsibility = $request->responsibility;
-            $job->qualifications = $request->qualifications;
+            //$job->responsibility = $request->responsibility;
+            //$job->qualifications = $request->qualifications;
             $job->keywords = $request->keywords;
             $job->experience = $request->experience;
             $job->company_name = $request->company_name;

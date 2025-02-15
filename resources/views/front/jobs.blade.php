@@ -11,7 +11,8 @@
                     <div class="align-end">
                         <select name="sort" id="sort" class="form-control">
                             <option value="1" {{ \Request::get('sort') == '1' ? 'selected' : '' }}>ล่าสุด</option>
-                            <option value="0" {{ \Request::get('sort') == '0' ? 'selected' : '' }}>เก่าแก่ที่สุด</option>
+                            <option value="0" {{ \Request::get('sort') == '0' ? 'selected' : '' }}>เก่าแก่ที่สุด
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -68,27 +69,27 @@
                                 <select name="experience" id="experience" class="form-control">
                                     <option value="">เลือกอายุสูตรอาหาร</option>
                                     <option value="1" {{ \Request::get('experience') == 1 ? 'selected' : '' }}>1
-                                        Year</option>
+                                        ปี</option>
                                     <option value="2" {{ \Request::get('experience') == 2 ? 'selected' : '' }}>2
-                                        Years</option>
+                                        ปี</option>
                                     <option value="3" {{ \Request::get('experience') == 3 ? 'selected' : '' }}>3
-                                        Years</option>
+                                        ปี</option>
                                     <option value="4" {{ \Request::get('experience') == 4 ? 'selected' : '' }}>4
-                                        Years</option>
+                                        ปี</option>
                                     <option value="5" {{ \Request::get('experience') == 5 ? 'selected' : '' }}>5
-                                        Years</option>
+                                        ปี</option>
                                     <option value="6" {{ \Request::get('experience') == 6 ? 'selected' : '' }}>6
-                                        Years</option>
+                                        ปี</option>
                                     <option value="7" {{ \Request::get('experience') == 7 ? 'selected' : '' }}>7
-                                        Years</option>
+                                        ปี</option>
                                     <option value="8" {{ \Request::get('experience') == 8 ? 'selected' : '' }}>8
-                                        Years</option>
+                                        ปี</option>
                                     <option value="9" {{ \Request::get('experience') == 9 ? 'selected' : '' }}>9
-                                        Years</option>
+                                        ปี</option>
                                     <option value="10" {{ \Request::get('experience') == 10 ? 'selected' : '' }}>10
-                                        Years</option>
+                                        ปี</option>
                                     <option value="10_plus"
-                                        {{ \Request::get('experience') == '10_plus' ? 'selected' : '' }}>10+ Years
+                                        {{ \Request::get('experience') == '10_plus' ? 'selected' : '' }}>10+ ปี
                                     </option>
                                 </select>
                             </div>
@@ -121,7 +122,7 @@
                                                                     class="img-fluid"
                                                                     style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
                                                             @else
-                                                                <span>No image available</span>
+                                                                <span>ไม่มีรูปภาพที่แสดง</span>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -136,7 +137,7 @@
                                         </div>
                                     @endforeach
                                 @else
-                                    <div class="col-md-12">Job not found</div>
+                                    <div class="col-md-12">ไม่พบสูตรอาหาร</div>
                                 @endif
                             </div>
                         </div>

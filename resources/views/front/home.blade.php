@@ -22,10 +22,10 @@
                     <div class="row">
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
                             <input type="text" class="form-control" name="keyword" id="keyword"
-                                placeholder="คีย์เวิร์ด">
+                                placeholder="คีย์เวิร์ดอาหารหาร">
                         </div>
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                            <input type="text" class="form-control" name="location" id="location" placeholder="ที่อยู่">
+                            <input type="text" class="form-control" name="location" id="location" placeholder="ต้นกำเนิดสูตรอาหาร">
                         </div>
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
                             <select name="category" id="category" class="form-control">
@@ -41,7 +41,7 @@
                         <div class=" col-md-3 mb-xs-3 mb-sm-3 mb-lg-0">
                             <div class="d-grid gap-2">
                                 {{-- <a href="{jobs.html}" class="btn btn-primary btn-block">Search</a> --}}
-                                <button type="submit" class="btn btn-primary btn-block">ค้นหาสูตรอาหารไทย</button>
+                                <button type="submit" class="btn btn-primary btn-block">ค้นหาสูตรอาหาร</button>
                             </div>
 
                         </div>
@@ -64,7 +64,7 @@
                                     <h4 class="pb-2 font-extrabold">{{ $category->name }}</h4>
                                 </a>
 
-                                <p class="mb-0">มีสูตรอาหารทั้งหมด <span>{{ $category->available_positions }}</span> สูคร </p>
+                                <p class="mb-0">มีสูตรอาหารทั้งหมด <span>{{ $category->available_positions }}</span> สูตร </p>
                             </div>
                         </div>
                     @endforeach

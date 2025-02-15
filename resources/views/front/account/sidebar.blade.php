@@ -10,7 +10,7 @@
         <h5 class="mt-3 pb-0"> {{ Auth::user()->name }}</h5>
         <p class="text-muted mb-1 fs-6"> {{ Auth::user()->designation }} </p>
         <div class="d-flex justify-content-center mb-2">
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-primary">เปลี่ยนรูปภาพโปรไฟล์</button>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-primary">เปลี่ยนรูปโปรไฟล์</button>
         </div>
     </div>
 </div>
@@ -27,7 +27,7 @@
                 <a href="{{ route('account.myJobs') }}">สูตรอาหารของฉัน</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route('account.myJobApplications') }}">สูตรอาหารที่บันทึก</a>
+                <a href="{{ route('account.myJobApplications') }}">สูตรอาหารที่ฉันบันทึก</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <a href="{{ route('account.logout') }}">ออกจากระบบ</a>

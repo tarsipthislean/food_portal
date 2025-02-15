@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Account Settings</li>
+                            <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                            <li class="breadcrumb-item active">สูตรอาหารของฉัน</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,10 +23,10 @@
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3 class="fs-4 mb-1">My Jobs</h3>
+                                    <h3 class="fs-4 mb-1">สูตรอาหารของฉัน</h3>
                                 </div>
                                 <div style="margin-top: -10px;">
-                                    <a href="{{ route('account.createJob') }}" class="btn btn-primary">Post a Job</a>
+                                    <a href="{{ route('account.createJob') }}" class="btn btn-primary">โพสต์สูตรอาหาร</a>
                                 </div>
 
                             </div>
@@ -34,11 +34,11 @@
                                 <table class="table ">
                                     <thead class="bg-light">
                                         <tr>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Job Created</th>
-                                            <th scope="col">Applicants</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">ชื่อสูตรอาหาร</th>
+                                            <th scope="col">วันที่สร้าง</th>
+                                            <th scope="col">การสนใจ</th>
+                                            <th scope="col">สถานะ</th>
+                                            <th scope="col">จัดการ</th>
                                         </tr>
                                     </thead>
                                     <tbody class="border-0">
@@ -54,9 +54,9 @@
                                                     <td>0 Applications</td>
                                                     <td>
                                                         @if ($job->status == 1)
-                                                            <div class="job-status text-capitalize">Active</div>
+                                                            <div class="job-status text-capitalize">กำลังทำงาน</div>
                                                         @else
-                                                            <div class="job-status text-capitalize">Block</div>
+                                                            <div class="job-status text-capitalize">ปิดใช้งาน</div>
                                                         @endif
                                                     </td>
                                                     <td>
@@ -66,9 +66,6 @@
                                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                             </button>
                                                             <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="job-detail.html"> <i
-                                                                            class="fa fa-eye" aria-hidden="true"></i>
-                                                                        View</a></li>
                                                                 <li><a class="dropdown-item"
                                                                         href="{{ route('account.myJobs.editJob', $job->id) }}"><i
                                                                             class="fa fa-edit" aria-hidden="true"></i>

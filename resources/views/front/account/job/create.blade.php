@@ -72,60 +72,49 @@
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">Location<span class="req">*</span></label>
-                                        <input type="text" placeholder="location" id="location" name="location"
+                                        <label for="" class="mb-2">ต้นกำเนิดสูตรอาหาร<span class="req">*</span></label>
+                                        <input type="text" placeholder="ต้นกำเนิดสูตรอาหาร" id="location" name="location"
                                             class="form-control">
                                         <p></p>
                                     </div>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Description<span class="req">*</span></label>
+                                    <label for="" class="mb-2">แนะนำสูตรอาหาร<span class="req">*</span></label>
                                     <textarea class="form-control" name="description" id="description" cols="5" rows="5"
-                                        placeholder="Description"></textarea>
+                                        placeholder="แนะนำสูตรอาหาร"></textarea>
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Benefits</label>
-                                    <textarea class="form-control" name="benefits" id="benefits" cols="5" rows="5" placeholder="Benefits"></textarea>
+                                    <label for="" class="mb-2">สูตรอาหาร</label>
+                                    <textarea class="form-control" name="benefits" id="benefits" cols="5" rows="5" placeholder="สูตรอาหาร"></textarea>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Responsibility</label>
-                                    <textarea class="form-control" name="responsibility" id="responsibility" cols="5" rows="5"
-                                        placeholder="Responsibility"></textarea>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="" class="mb-2">Qualifications</label>
-                                    <textarea class="form-control" name="qualifications" id="qualifications" cols="5" rows="5"
-                                        placeholder="Qualifications"></textarea>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label for="" class="mb-2">Experience <span class="req">*</span></label>
+                                    <label for="" class="mb-2">อายุสูตรอาหาร <span class="req">*</span></label>
                                     <select name="experience" id="experience" class="form-control">
-                                        <option value="1">1 Year</option>
-                                        <option value="2">2 Year</option>
-                                        <option value="3">3 Year</option>
-                                        <option value="4">4 Year</option>
-                                        <option value="5">5 Year</option>
-                                        <option value="6">6 Year</option>
-                                        <option value="7">7 Year</option>
-                                        <option value="8">8 Year</option>
-                                        <option value="9">9 Year</option>
-                                        <option value="10">10 Year</option>
-                                        <option value="10_plus">10+ Year</option>
+                                        <option value="1">1 ปี</option>
+                                        <option value="2">2 ปี</option>
+                                        <option value="3">3 ปี</option>
+                                        <option value="4">4 ปี</option>
+                                        <option value="5">5 ปี</option>
+                                        <option value="6">6 ปี</option>
+                                        <option value="7">7 ปี</option>
+                                        <option value="8">8 ปี</option>
+                                        <option value="9">9 ปี</option>
+                                        <option value="10">10 ปี</option>
+                                        <option value="10_plus">10+ ปี</option>
                                     </select>
                                     <p></p>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Keywords</label>
-                                    <input type="text" placeholder="keywords" id="keywords" name="keywords"
+                                    <label for="" class="mb-2">คีย์เวิร์ดสูตรอาหาร</label>
+                                    <input type="text" placeholder="คีย์เวิร์ดสูตรอาหาร" id="keywords" name="keywords"
                                         class="form-control">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Image</label>
+                                    <label for="" class="mb-2">แนบรูปสูตรอาหาร</label>
                                     <input type="file" name="image" class="form-control" id="imageInput"
                                         onchange="previewImage(event)">
                                     <!-- แสดงตัวอย่างภาพที่เลือก -->
@@ -135,19 +124,19 @@
 
 
 
-                                <h3 class="fs-4 mb-1 mt-5 border-top pt-5">Credit Details</h3>
+                                <h3 class="fs-4 mb-1 mt-5 border-top pt-5">ข้อมูลติดต่อ</h3>
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">Name<span class="req">*</span></label>
-                                        <input type="text" placeholder="Company Name" id="company_name"
+                                        <label for="" class="mb-2">ชื่อผู้ใช้<span class="req">*</span></label>
+                                        <input type="text" placeholder="ชื่อผู้ใช้" id="company_name"
                                             name="company_name" class="form-control">
                                         <p></p>
                                     </div>
 
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">Location</label>
-                                        <input type="text" placeholder="company_location" id="company_location"
+                                        <label for="" class="mb-2">อีเมลล์</label>
+                                        <input type="text" placeholder="อีเมลล์" id="company_location"
                                             name="company_location" class="form-control">
                                     </div>
                                 </div>
