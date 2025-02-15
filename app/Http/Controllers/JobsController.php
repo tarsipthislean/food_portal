@@ -100,7 +100,7 @@ class JobsController extends Controller
 
         // If job not found
         if ($job == null) {
-            $message = 'Job does not exist.';
+            $message = 'ไม่มีสูตรอาหาร!';
             session()->flash('error', $message);
             return response()->json([
                 'status' => false,
@@ -112,7 +112,7 @@ class JobsController extends Controller
         $employer_id = $job->user_id;
 
         if ($employer_id == Auth::user()->id) {
-            $message = 'You cannot apply for your own job.';
+            $message = 'คุณไม่สามารถบันทึกสูตรอาหารของคุณได้';
             session()->flash('error', $message);
             return response()->json([
                 'status' => false,
@@ -127,7 +127,7 @@ class JobsController extends Controller
         ])->count();
 
         if ($jobApplictionCount > 0) {
-            $message = 'You have already applied for this job.';
+            $message = 'คุณได้บันทึกสูตรอาหารนี้ไปแล้ว';
             session()->flash('error', $message);
             return response()->json([
                 'status' => false,
@@ -152,7 +152,7 @@ class JobsController extends Controller
         ];
         Mail::to($employer->email)->send(new JobNotificationEmail($mailData));
 
-        $message = 'You have successfully applied.';
+        $message = 'คุณบันทึกสูตรอาหารสำเร็จ';
 
         session()->flash('success', $message);
         return response()->json([

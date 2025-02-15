@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Account Settings</li>
+                            <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                            <li class="breadcrumb-item active">ตั้งค่าโปรไฟล์</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,32 +22,32 @@
                     <div class="card border-0 shadow mb-4">
                         <form action="" method="post" id="userForm" name="userForm">
                             <div class="card-body  p-4">
-                                <h3 class="fs-4 mb-1">My Profile</h3>
+                                <h3 class="fs-4 mb-1">โปรไฟล์ของฉัน</h3>
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Name*</label>
+                                    <label for="" class="mb-2">ชื่อโปรไฟล์*</label>
                                     <input type="text" name="name" id="name" placeholder="Enter Name"
                                         class="form-control" value="{{ $user->name }}">
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Email*</label>
+                                    <label for="" class="mb-2">อีเมลล์*</label>
                                     <input type="text" name="email" id="email" placeholder="Enter Email"
                                         class="form-control" value="{{ $user->email }}">
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Designation</label>
-                                    <input type="text" name="designation" id="designation" placeholder="Designation"
+                                    <label for="" class="mb-2">อาชีพ</label>
+                                    <input type="text" name="designation" id="designation" placeholder="อาชีพ"
                                         class="form-control" value="{{ $user->designation }}">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="" class="mb-2">Mobile</label>
+                                    <label for="" class="mb-2">เบอร์โทรศัพท์</label>
                                     <input type="text" name="mobile" id="mobile" placeholder="Mobile"
                                         class="form-control" value="{{ $user->mobile }}">
                                 </div>
                             </div>
                             <div class="card-footer  p-4">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">บันทึก</button>
                             </div>
                         </form>
                     </div>

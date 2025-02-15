@@ -70,12 +70,6 @@
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">Salary</label>
-                                        <input value="{{ $job->salary }}" type="text" placeholder="Salary"
-                                            id="salary" name="salary" class="form-control">
-                                    </div>
-
-                                    <div class="mb-4 col-md-6">
                                         <label for="" class="mb-2">Location<span class="req">*</span></label>
                                         <input value="{{ $job->location }}" type="text" placeholder="location"
                                             id="location" name="location" class="form-control">

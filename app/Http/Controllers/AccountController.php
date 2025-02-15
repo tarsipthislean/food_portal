@@ -204,11 +204,11 @@ class AccountController extends Controller
             'company_name' => 'required|min:1|max:75',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ตรวจสอบไฟล์รูปภาพ
         ];
-    
+        
         $validator = Validator::make($request->all(), $rules);
-    
+        
         if ($validator->passes()) {
-    
+        
             // สร้างออบเจ็กต์ Job ใหม่
             $job = new Job();
             $job->title = $request->title;
@@ -216,7 +216,8 @@ class AccountController extends Controller
             $job->job_type_id = $request->jobType;
             $job->user_id = Auth::user()->id;
             $job->vacancy = $request->vacancy;
-            $job->salary = $request->salary;
+            // ลบการกำหนดค่า salary ออก
+            //$job->salary = $request->salary; 
             $job->location = $request->location;
             $job->description = $request->description;
             $job->benefits = $request->benefits;
@@ -226,18 +227,18 @@ class AccountController extends Controller
             $job->experience = $request->experience;
             $job->company_name = $request->company_name;
             $job->company_location = $request->company_location;
-    
+        
             // การอัพโหลดไฟล์ภาพ
             if ($request->hasFile('image')) {
                 $imageName = time().'.'.$request->image->extension();  
                 $request->image->move(public_path('job_pic'), $imageName);  // ย้ายไฟล์ไปที่ public/job_pic
                 $job->job_image = 'job_pic/'.$imageName;  // บันทึก path ของภาพในฐานข้อมูล
             }
-    
+        
             $job->save();  // บันทึกข้อมูล
-    
+        
             session()->flash('success', 'Job added successfully!');
-    
+        
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -248,7 +249,7 @@ class AccountController extends Controller
                 'errors' => $validator->errors()
             ]);
         }
-    }
+    }    
     
 
     public function myJobs()
@@ -295,18 +296,19 @@ class AccountController extends Controller
             'company_name' => 'required|min:1|max:75',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ตรวจสอบไฟล์รูปภาพ
         ];
-    
+        
         $validator = Validator::make($request->all(), $rules);
-    
+        
         if ($validator->passes()) {
-    
+        
             $job = Job::find($id);
             $job->title = $request->title;
             $job->category_id = $request->category;
             $job->job_type_id = $request->jobType;
             $job->user_id = Auth::user()->id;
             $job->vacancy = $request->vacancy;
-            $job->salary = $request->salary;
+            // ลบการกำหนดค่า salary ออก
+            //$job->salary = $request->salary;
             $job->location = $request->location;
             $job->description = $request->description;
             $job->benefits = $request->benefits;
@@ -316,18 +318,18 @@ class AccountController extends Controller
             $job->experience = $request->experience;
             $job->company_name = $request->company_name;
             $job->company_location = $request->company_location;
-    
+        
             // การอัพโหลดรูปภาพ
             if ($request->hasFile('image')) {
                 $imageName = time().'.'.$request->image->extension();
                 $request->image->move(public_path('job_pic'), $imageName);  // ย้ายไฟล์ไปที่ public/job_pic
                 $job->job_image = 'job_pic/'.$imageName;  // บันทึก path ของภาพในฐานข้อมูล
             }
-    
+        
             $job->save();  // บันทึกข้อมูล
-    
-            session()->flash('success', 'Job updated successfully!');
-    
+        
+            session()->flash('success', 'อัปเดตสูตรอาหารสำเร็จ!');
+        
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -338,7 +340,7 @@ class AccountController extends Controller
                 'errors' => $validator->errors()
             ]);
         }
-    }    
+    }      
 
     public function deleteJob(Request $request)
     {

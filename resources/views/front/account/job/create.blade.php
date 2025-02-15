@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Account Settings</li>
+                            <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                            <li class="breadcrumb-item active">โพสต์สูตรอาหาร</li>
                         </ol>
                     </nav>
                 </div>
@@ -24,18 +24,19 @@
                         enctype="multipart/form-data">
                         <div class="card border-0 shadow mb-4 ">
                             <div class="card-body card-form p-4">
-                                <h3 class="fs-4 mb-1">Job Details</h3>
+                                <h3 class="fs-4 mb-1">สร้างโพสต์อาหาร</h3>
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-                                        <label for="" class="mb-2">Title<span class="req">*</span></label>
-                                        <input type="text" placeholder="Job Title" id="title" name="title"
+                                        <label for="" class="mb-2">ชื่ออาหาร<span class="req">*</span></label>
+                                        <input type="text" placeholder="ชื่ออาหาร" id="title" name="title"
                                             class="form-control">
                                         <p></p>
                                     </div>
                                     <div class="col-md-6  mb-4">
-                                        <label for="" class="mb-2">Category<span class="req">*</span></label>
+                                        <label for="" class="mb-2">หมวดหมู่อาหาร<span
+                                                class="req">*</span></label>
                                         <select name="category" id="category" class="form-control">
-                                            <option value="">Select a Category</option>
+                                            <option value="">เลือกหมวดหมู่อาหาร</option>
                                             @if ($categories->isNotEmpty())
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -48,9 +49,10 @@
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-                                        <label for="" class="mb-2">Job Type<span class="req">*</span></label>
+                                        <label for="" class="mb-2">ประเภทสูตรอาหาร<span
+                                                class="req">*</span></label>
                                         <select name="jobType" id="jobType" class="form-select">
-                                            <option value="">Select Job Type</option>
+                                            <option value="">ประเภทสูตรอาหาร</option>
                                             @if ($jobTypes->isNotEmpty())
                                                 @foreach ($jobTypes as $jobType)
                                                     <option value="{{ $jobType->id }}">{{ $jobType->name }}</option>
@@ -60,20 +62,15 @@
                                         <p></p>
                                     </div>
                                     <div class="col-md-6  mb-4">
-                                        <label for="" class="mb-2">Vacancy<span class="req">*</span></label>
-                                        <input type="number" min="1" placeholder="Vacancy" id="vacancy"
+                                        <label for="" class="mb-2">จำนวนสูตรอาหาร<span
+                                                class="req">*</span></label>
+                                        <input type="number" min="1" placeholder="จำนวนสูตรอาหาร" id="vacancy"
                                             name="vacancy" class="form-control">
                                         <p></p>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">Salary</label>
-                                        <input type="text" placeholder="Salary" id="salary" name="salary"
-                                            class="form-control">
-                                    </div>
-
                                     <div class="mb-4 col-md-6">
                                         <label for="" class="mb-2">Location<span class="req">*</span></label>
                                         <input type="text" placeholder="location" id="location" name="location"
@@ -129,12 +126,13 @@
 
                                 <div class="mb-4">
                                     <label for="" class="mb-2">Image</label>
-                                    <input type="file" name="image" class="form-control" id="imageInput" onchange="previewImage(event)">
+                                    <input type="file" name="image" class="form-control" id="imageInput"
+                                        onchange="previewImage(event)">
                                     <!-- แสดงตัวอย่างภาพที่เลือก -->
-                                    <img id="imagePreview" src="#" alt="Image Preview" 
-                                         style="width: 300px; height: 300px; object-fit: cover; margin-top: 10px;">
+                                    <img id="imagePreview" src="#" alt="Image Preview"
+                                        style="width: 300px; height: 300px; object-fit: cover; margin-top: 10px;">
                                 </div>
-                                
+
 
 
                                 <h3 class="fs-4 mb-1 mt-5 border-top pt-5">Credit Details</h3>
