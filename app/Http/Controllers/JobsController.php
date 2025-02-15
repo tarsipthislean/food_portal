@@ -152,7 +152,7 @@ class JobsController extends Controller
         ];
         Mail::to($employer->email)->send(new JobNotificationEmail($mailData));
 
-        $message = 'คุณบันทึกสูตรอาหารสำเร็จ';
+        $message = 'คุณบันทึกสูตรอาหารเรียบร้อยแล้ว';
 
         session()->flash('success', $message);
         return response()->json([

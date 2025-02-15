@@ -37,7 +37,7 @@
                                 <div class="jobs_left d-flex align-items-center">
                                     <div class="jobs_conetent">
                                         <a href="#">
-                                            <h4>{{ $job->title }}</h4>
+                                            <h4 class="text-primary">{{ $job->title }}</h4>
                                         </a>
                                         <div class="links_locat d-flex align-items-center">
                                             <div class="location">
@@ -65,15 +65,15 @@
                             </div>
                         </div>
 
-                        <div class="descript_wrap white-bg">
+                        <div class="descript_wrap white-bg p-4">
+                            <h4 class="mb-3">แนะนำสูตรอาหาร</h4>
                             <div class="single_wrap">
-                                <h4>แนะนำสูตรอาหาร</h4>
                                 {!! nl2br($job->description) !!}
                             </div>
 
                             @if (!empty($job->benefits))
-                                <div class="single_wrap">
-                                    <h4>สูตรอาหารการทำ</h4>
+                                <div class="single_wrap mt-4">
+                                    <h4>สูตรอาหาร</h4>
                                     {!! nl2br($job->benefits) !!}
                                 </div>
                             @endif
@@ -130,6 +130,7 @@
     </section>
 @endsection
 
+
 @section('customJs')
 <script type="text/javascript">
 // ตั้งค่า CSRF Token สำหรับ AJAX requests
@@ -140,7 +141,7 @@ $.ajaxSetup({
 });
 
 function applyJob(id) {
-    if (confirm('Are you sure you want to apply for this job?')) {
+    if (confirm('คุณแน่ใจหรือไม่ว่าต้องการบันทึกสูตรอาหารนี้?')) {
         $.ajax({
             url: '{{ route('applyJob') }}',
             type: 'POST',

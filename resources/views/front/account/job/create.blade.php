@@ -143,14 +143,16 @@
 
                             </div>
                             <div class="card-footer p-4">
-                                <button type="submit" class="btn btn-primary">Save Job</button>
+                                <button type="submit" class="btn btn-primary">บันทึกสูตรอาหาร</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
     </section>
+    
 @endsection
+
 
 @section('customJs')
     <script type="text/javascript">

@@ -79,8 +79,11 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="5">ไม่พบสูตรอาหารของคุณ</td>
+                                        </tr>
                                         @endif
-
                                     </tbody>
 
                                 </table>

@@ -42,7 +42,7 @@ class AccountController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
 
-            session()->flash('success', 'Registration successful!');
+            session()->flash('success', 'ลงทะเบียนเรียบร้อยแล้ว!');
 
             return response()->json([
                 'status' => true,
@@ -76,7 +76,7 @@ class AccountController extends Controller
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 return redirect()->route('account.profile');
             } else {
-                return redirect()->route('account.login')->with('error', 'Email or password is incorrect.');
+                return redirect()->route('account.login')->with('error', 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!');
             }
         } else {
             return redirect()->route('account.login')
@@ -112,7 +112,7 @@ class AccountController extends Controller
             $user->designation = $request->designation;
             $user->save();
 
-            session()->flash('success', 'Profile updated successfully!');
+            session()->flash('success', 'อัปเดตโปรไฟล์เรียบร้อยแล้ว!');
 
             return response()->json([
                 'status' => true,
@@ -163,7 +163,7 @@ class AccountController extends Controller
 
             User::where('id', $id)->update(['image' => $imageName]);
 
-            session()->flash('success', 'Profile picture updated successfully!');
+            session()->flash('success', 'อัปเดตรูปโปรไฟล์เรียบร้อยแล้ว!!');
 
             return response()->json([
                 'status' => true,
@@ -233,7 +233,7 @@ class AccountController extends Controller
         
             $job->save();  // บันทึกข้อมูล
         
-            session()->flash('success', 'Job added successfully!');
+            session()->flash('success', 'เพิ่มสูตรอาหารเรียบร้อยแล้ว!');
         
             return response()->json([
                 'status' => true,
@@ -320,7 +320,7 @@ class AccountController extends Controller
         
             $job->save();  // บันทึกข้อมูล
         
-            session()->flash('success', 'อัปเดตสูตรอาหารสำเร็จ!');
+            session()->flash('success', 'อัปเดตสูตรอาหารเรียบร้อยแล้ว!');
         
             return response()->json([
                 'status' => true,
@@ -342,7 +342,7 @@ class AccountController extends Controller
         ])->first();
 
         if ($job == null) {
-            session()->flash('error', 'Either job deleted or not found!');
+            session()->flash('error', 'ไม่มีสูตรอาหารหรือถูกลบไปแล้ว!');
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -350,7 +350,7 @@ class AccountController extends Controller
         }
 
         Job::where('id', $job->id)->delete();
-        session()->flash('success', 'Job deleted successfully!');
+        session()->flash('success', 'ลบสูตรอาหารเรียบร้อยแล้ว!');
         return response()->json([
             'status' => true
         ]);
@@ -375,19 +375,19 @@ class AccountController extends Controller
             'user_id' => Auth::user()->id
         ])->first();
         if ($jobApplication == null) {
-            session()->flash('error', 'Job application not found!');
+            session()->flash('error', 'ไม่พบสูตรอาหารที่บันทึก!');
             return response()->json([
                 'status' => false,
-                'message' => 'Job application not found.'
+                'message' => 'ไม่พบสูตรอาหารที่บันทึก.'
             ]);
         }
 
         JobApplication::find($request->id)->delete();
 
-        session()->flash('success', 'Job application removed successfully!');
+        session()->flash('success', 'ลบสูตรอาหารที่บันทึกเรียบร้อยแล้ว!');
         return response()->json([
             'status' => true,
-            'message' => 'Job application removed successfully.'
+            'message' => 'ลบสูตรอาหารที่บันทึกเรียบร้อยแล้ว.'
         ]);
     }
 }
