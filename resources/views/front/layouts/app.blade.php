@@ -12,6 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <!-- Fav Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="#" />
 </head>
@@ -29,10 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-0 ms-sm-0 me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item">
-                            <a class="nav-link  font-extrabold" aria-current="page" href="{{ route('home') }}">หน้าหลัก</a>
+                            <a class="nav-link  font-extrabold" aria-current="page"
+                                href="{{ route('home') }}">หน้าหลัก</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-extrabold" aria-current="page" href="{{ route('jobs') }}">ค้นหาอาหาร</a>
+                            <a class="nav-link font-extrabold" aria-current="page"
+                                href="{{ route('jobs') }}">ค้นหาอาหาร</a>
                         </li>
                     </ul>
 
@@ -78,7 +81,7 @@
 
     <footer class="bg-dark py-3 bg-2">
         <div class="container">
-            <p class="text-center text-white pt-3 fw-bold fs-6">© 2025 bru city, all right reserved</p>
+            <p class="text-center text-white pt-3 fw-bold fs-6">© 2025 Buriram Rajabhat University</p>
         </div>
     </footer>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
@@ -113,7 +116,7 @@
                             $('#image_error').html(errors.image);
                         }
                     } else {
-                        window.location.href =  '{{ url()->current() }}'
+                        window.location.href = '{{ url()->current() }}'
                     }
                 }
             })

@@ -61,6 +61,7 @@
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

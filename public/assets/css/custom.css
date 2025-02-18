@@ -1,0 +1,78 @@
+/* Override สีของปุ่ม btn-primary */
+.btn-primary {
+    background-color: #ff5733 !important;
+    border-color: #ff5733 !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    background-color: #e04e2b !important;
+    border-color: #d94423 !important;
+}
+
+/* Override ปุ่ม btn-outline-primary */
+.btn-outline-primary {
+    border-color: #ff5733 !important;
+    color: #ff5733 !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff5733 !important;   
+    color: #fff !important;
+}
+
+/* Override สีข้อความที่ใช้คลาส text-primary */
+.text-primary {
+    color: #ff5733 !important;
+}
+
+/* Override ไอคอนลูกศรซ้าย */
+.fa.fa-arrow-left {
+    color: #ff5733 !important;
+}
+
+button i.fa.fa-arrow-right {
+    color: #ff5733 !important;
+}
+
+.mt-3 {
+    color: #ff5733 !important;
+}
+
+.href {
+    color: #ff5733 !important;
+}
+
+a {
+    color: #ff5733;
+}
+
+h2:after {
+    content: "";
+    position: absolute;
+    background-color: #ff5733;
+    width: 70px;
+    height: 4px;
+    bottom: 0px;
+    left: 0px;
+}
+
+/* ปรับแต่งเฉพาะปุ่มรีเฟรช */
+.btn-refresh {
+    background-color: #ff5733 !important;  /* สีส้ม */
+    border-color: #ff5733 !important;
+    color: #fff !important;                /* ตัวหนังสือสีขาว */
+}
+
+.btn-refresh:hover {
+    background-color: #e04e2b !important;
+    border-color: #d94423 !important;
+}
+
+
+.section-5 .account-nav ul li a:hover {
+    color: #d94423;
+  }
+
+

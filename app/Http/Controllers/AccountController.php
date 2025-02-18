@@ -18,13 +18,11 @@ use Illuminate\Support\Facades\File;
 
 class AccountController extends Controller
 {
-    // แสดงหน้า Registration Form
     public function registration()
     {
         return view('front.account.registration');
     }
 
-    // บันทึกข้อมูล User
     public function processRegistration(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -134,7 +132,6 @@ class AccountController extends Controller
 
     public function updateProfilePic(Request $request)
     {
-        //dd($request->all());
 
         $id = Auth::user()->id;
 
@@ -359,7 +356,7 @@ class AccountController extends Controller
     public function myJobApplications(Request $request)
     {
         $jobApplications = JobApplication::where('user_id', Auth::user()->id)
-            ->with('job', 'job.jobType', 'job.jobApplications') // แก้ชื่อความสัมพันธ์เป็น jobApplications
+            ->with('job', 'job.jobType', 'job.jobApplications')
             ->paginate(10);
 
 

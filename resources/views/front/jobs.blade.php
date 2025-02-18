@@ -94,7 +94,7 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">ค้นหาสูตรอาหาร</button>
-                            <a href="{{ route('jobs') }}" class="btn btn-primary mt-3">รีเฟรช</a>
+                            <a href="{{ route('jobs') }}" class="btn btn-primary btn-refresh mt-3">รีเฟรช</a>
                         </div>
                     </form>
                 </div>
