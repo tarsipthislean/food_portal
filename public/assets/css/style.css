@@ -2,7 +2,7 @@
 /* Colours */
 /* Fonts */
 /* Bootstrap Styles */
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Kanit:wght@400;700&display=swap');
 :root {
   --bs-white: #fff;
   --bs-gray: #6c757d;
@@ -9161,7 +9161,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.2;
   padding: 0px 0 20px;
-  font-family: 'Inter-Bold';
+  font-family: 'Kanit', sans-serif;
 }
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   font-size: inherit;
@@ -9329,11 +9329,11 @@ header .navbar-brand {
 }
 .section-0 h1 {
   color: #FFF;
-  font-family: 'Sarabun', sans-serif;
+  font-family: 'Kanit', sans-serif;
 }
 .section-0 p {
   color: #FFF;
-  font-family: 'Inter-Bold';
+  font-family: 'Kanit', sans-serif;
   font-size: 24px;
 }
 .section-2 .single_catagory {
