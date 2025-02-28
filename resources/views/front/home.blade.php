@@ -2,7 +2,7 @@
 
 @section('main')
     <section class="section-0 lazy d-flex bg-image-style dark align-items-center"
-        style="background-image: url('{{ asset('assets/images/foodv3x.jpg') }}');">
+        style="background-image: url('{{ asset('assets/images/background1.jpg') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-xl-8">
@@ -25,7 +25,8 @@
                                 placeholder="คีย์เวิร์ดอาหารหาร">
                         </div>
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                            <input type="text" class="form-control" name="location" id="location" placeholder="ต้นตำรับสูตรอาหาร">
+                            <input type="text" class="form-control" name="location" id="location"
+                                placeholder="ต้นตำรับสูตรอาหาร">
                         </div>
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
                             <select name="category" id="category" class="form-control">
@@ -64,7 +65,8 @@
                                     <h4 class="pb-2 font-extrabold">{{ $category->name }}</h4>
                                 </a>
 
-                                <p class="mb-0">มีสูตรอาหารทั้งหมด <span>{{ $category->available_positions }}</span> สูตร </p>
+                                <p class="mb-0">มีสูตรอาหารทั้งหมด <span>{{ $category->available_positions }}</span> สูตร
+                                </p>
                             </div>
                         </div>
                     @endforeach
