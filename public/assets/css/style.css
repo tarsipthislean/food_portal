@@ -2,6 +2,7 @@
 /* Colours */
 /* Fonts */
 /* Bootstrap Styles */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
 :root {
   --bs-white: #fff;
   --bs-gray: #6c757d;
@@ -9328,7 +9329,7 @@ header .navbar-brand {
 }
 .section-0 h1 {
   color: #FFF;
-  font-family: 'Inter-Bold';
+  font-family: 'Sarabun', sans-serif;
 }
 .section-0 p {
   color: #FFF;
