@@ -25,7 +25,7 @@
                                 placeholder="คีย์เวิร์ดอาหารหาร">
                         </div>
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                            <input type="text" class="form-control" name="location" id="location" placeholder="ต้นกำเนิดสูตรอาหาร">
+                            <input type="text" class="form-control" name="location" id="location" placeholder="ต้นตำรับสูตรอาหาร">
                         </div>
                         <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
                             <select name="category" id="category" class="form-control">

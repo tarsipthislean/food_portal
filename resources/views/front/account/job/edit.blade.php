@@ -26,13 +26,15 @@
                                 <h3 class="fs-4 mb-1">แก้ไขสูตรอาหารของฉัน</h3>
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-                                        <label for="" class="mb-2">ชื่อสูตรอาหาร<span class="req">*</span></label>
+                                        <label for="" class="mb-2">ชื่อสูตรอาหาร<span
+                                                class="req">*</span></label>
                                         <input value="{{ $job->title }}" type="text" placeholder="ชื่อสูตรอาหาร"
                                             id="title" name="title" class="form-control">
                                         <p></p>
                                     </div>
                                     <div class="col-md-6  mb-4">
-                                        <label for="" class="mb-2">หมวดหมู่อาหาร<span class="req">*</span></label>
+                                        <label for="" class="mb-2">หมวดหมู่อาหาร<span
+                                                class="req">*</span></label>
                                         <select name="category" id="category" class="form-control">
                                             <option value="">เลือกหมวดหมู่อาหาร</option>
                                             @if ($categories->isNotEmpty())
@@ -48,7 +50,8 @@
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-                                        <label for="" class="mb-2">ประเภทอาหาร<span class="req">*</span></label>
+                                        <label for="" class="mb-2">ประเภทอาหาร<span
+                                                class="req">*</span></label>
                                         <select name="jobType" id="jobType" class="form-select">
                                             <option value="">เลือกประเภทอาหาร</option>
                                             @if ($jobTypes->isNotEmpty())
@@ -61,7 +64,8 @@
                                         <p></p>
                                     </div>
                                     <div class="col-md-6  mb-4">
-                                        <label for="" class="mb-2">จำนวนสูตรอาหาร<span class="req">*</span></label>
+                                        <label for="" class="mb-2">จำนวนสูตรอาหาร<span
+                                                class="req">*</span></label>
                                         <input value="{{ $job->vacancy }}" type="number" min="1"
                                             placeholder="จำนวนสูตรอาหาร" id="vacancy" name="vacancy" class="form-control">
                                         <p></p>
@@ -70,9 +74,11 @@
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">ต้นกำเนิดสูตรอาหาร<span class="req">*</span></label>
-                                        <input value="{{ $job->location }}" type="text" placeholder="ต้นกำเนิดสูตรอาหาร เช่น บุรีรัมย์"
-                                            id="location" name="location" class="form-control">
+                                        <label for="" class="mb-2">ต้นตำรับสูตรอาหาร<span
+                                                class="req">*</span></label>
+                                        <input value="{{ $job->location }}" type="text"
+                                            placeholder="ต้นตำรับสูตรอาหาร เช่น บุรีรัมย์" id="location" name="location"
+                                            class="form-control">
                                         <p></p>
                                     </div>
                                 </div>
@@ -139,18 +145,17 @@
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">ชื่อผู้ใช้<span class="req">*</span></label>
-                                        <input value="{{ $job->company_name }}" type="text"
-                                            placeholder="ชื่อผู้ใช้" id="company_name" name="company_name"
-                                            class="form-control">
+                                        <label for="" class="mb-2">ชื่อผู้ใช้<span
+                                                class="req">*</span></label>
+                                        <input value="{{ $job->credit_name }}" type="text" placeholder="ชื่อผู้ใช้"
+                                            id="credit_name" name="credit_name" class="form-control">
                                         <p></p>
                                     </div>
 
                                     <div class="mb-4 col-md-6">
                                         <label for="" class="mb-2">อีเมลล์</label>
-                                        <input value="{{ $job->company_location }}" type="text"
-                                            placeholder="อีเมลล์" id="company_location" name="company_location"
-                                            class="form-control">
+                                        <input value="{{ $job->credit_email }}" type="text" placeholder="อีเมลล์"
+                                            id="credit_email" name="credit_email" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +223,7 @@
                             'invalid-feedback').html('');
                         $('#description').removeClass('is-invalid').siblings('p').removeClass(
                             'invalid-feedback').html('');
-                        $('#company_name').removeClass('is-invalid').siblings('p').removeClass(
+                        $('#credit_name').removeClass('is-invalid').siblings('p').removeClass(
                             'invalid-feedback').html('');
 
                         // เปลี่ยนเส้นทางไปหน้าของงานที่บันทึก
@@ -277,11 +282,20 @@
                                 'invalid-feedback').html('');
                         }
 
-                        if (error.company_name) {
-                            $('#company_name').addClass('is-invalid').siblings('p').addClass(
-                                'invalid-feedback').html(error.company_name);
+                        if (error.credit_name) {
+                            $('#credit_name').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.credit_name);
                         } else {
-                            $('#company_name').removeClass('is-invalid').siblings('p').removeClass(
+                            $('#credit_name').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
+
+                        // ตรวจสอบ error สำหรับ image ด้วย
+                        if (error.image) {
+                            $('#imageInput').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.image);
+                        } else {
+                            $('#imageInput').removeClass('is-invalid').siblings('p').removeClass(
                                 'invalid-feedback').html('');
                         }
                     }

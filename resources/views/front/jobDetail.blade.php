@@ -103,7 +103,7 @@
                                         <span>{{ \Carbon\Carbon::parse($job->created_at)->format('d, M Y') }}</span>
                                     </li>
                                     <li>จำนวนสูตรอาหาร: <span>{{ $job->vacancy }}</span></li>
-                                    <li>ต้นกำเนิด: <span>{{ $job->location }}</span></li>
+                                    <li>ต้นตำรับสูตรอาหาร: <span>{{ $job->location }}</span></li>
                                     <li>ประเภทสูตรอาหาร: <span>{{ $job->jobType->name }}</span></li>
                                 </ul>
                             </div>
@@ -113,13 +113,13 @@
                     <div class="card shadow border-0 my-4">
                         <div class="job_sumary">
                             <div class="summery_header pb-1 pt-4">
-                                <h3>สร้างโดย</h3>
+                                <h3>โพสต์โดย</h3>
                             </div>
                             <div class="job_content pt-3">
                                 <ul>
-                                    <li>ชื่อผู้สร้าง: <span>{{ $job->company_name }}</span></li>
-                                    @if (!empty($job->company_location))
-                                        <li>อีเมลล์ติดต่อ: <span>{{ $job->company_location }}</span></li>
+                                    <li>ชื่อผู้สร้าง: <span>{{ $job->credit_name }}</span></li>
+                                    @if (!empty($job->credit_email))
+                                        <li>อีเมลล์ติดต่อ: <span>{{ $job->credit_email }}</span></li>
                                     @endif
                                 </ul>
                             </div>

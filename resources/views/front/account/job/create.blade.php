@@ -72,8 +72,9 @@
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">ต้นกำเนิดสูตรอาหาร<span class="req">*</span></label>
-                                        <input type="text" placeholder="ต้นกำเนิดสูตรอาหาร" id="location" name="location"
+                                        <label for="" class="mb-2">ต้นตำรับสูตรอาหาร<span
+                                                class="req">*</span></label>
+                                        <input type="text" placeholder="ต้นตำรับสูตรอาหาร" id="location" name="location"
                                             class="form-control">
                                         <p></p>
                                     </div>
@@ -109,8 +110,8 @@
 
                                 <div class="mb-4">
                                     <label for="" class="mb-2">คีย์เวิร์ดสูตรอาหาร</label>
-                                    <input type="text" placeholder="คีย์เวิร์ดสูตรอาหาร" id="keywords" name="keywords"
-                                        class="form-control">
+                                    <input type="text" placeholder="คีย์เวิร์ดสูตรอาหาร" id="keywords"
+                                        name="keywords" class="form-control">
                                 </div>
 
                                 <div class="mb-4">
@@ -128,16 +129,17 @@
 
                                 <div class="row">
                                     <div class="mb-4 col-md-6">
-                                        <label for="" class="mb-2">ชื่อผู้ใช้<span class="req">*</span></label>
-                                        <input type="text" placeholder="ชื่อผู้ใช้" id="company_name"
-                                            name="company_name" class="form-control">
+                                        <label for="" class="mb-2">ชื่อผู้ใช้<span
+                                                class="req">*</span></label>
+                                        <input type="text" placeholder="ชื่อผู้ใช้" id="credit_name"
+                                            name="credit_name" class="form-control">
                                         <p></p>
                                     </div>
 
                                     <div class="mb-4 col-md-6">
                                         <label for="" class="mb-2">อีเมลล์</label>
-                                        <input type="text" placeholder="อีเมลล์" id="company_location"
-                                            name="company_location" class="form-control">
+                                        <input type="text" placeholder="อีเมลล์" id="credit_email"
+                                            name="credit_email" class="form-control">
                                     </div>
                                 </div>
 
@@ -150,7 +152,7 @@
                 </div>
             </div>
     </section>
-    
+
 @endsection
 
 
@@ -173,9 +175,9 @@
                 url: '{{ route('account.saveJob') }}',
                 type: 'POST',
                 dataType: 'json',
-                data: new FormData($("#createJobForm")[0]), // ส่งข้อมูลฟอร์มรวมถึงไฟล์
-                contentType: false, // ไม่ต้องส่ง Content-Type
-                processData: false, // ไม่ต้องแปลงข้อมูล
+                data: new FormData($("#createJobForm")[0]),
+                contentType: false,
+                processData: false,
                 success: function(response) {
                     $("button[type='submit']").prop('disabled', false);
 
@@ -192,8 +194,9 @@
                             'invalid-feedback').html('');
                         $('#description').removeClass('is-invalid').siblings('p').removeClass(
                             'invalid-feedback').html('');
-                        $('#company_name').removeClass('is-invalid').siblings('p').removeClass(
+                        $('#credit_name').removeClass('is-invalid').siblings('p').removeClass(
                             'invalid-feedback').html('');
+                        // หากสำเร็จ ไม่จำเป็นต้องตรวจสอบ error สำหรับ image
                         window.location.href = "{{ route('account.myJobs') }}";
                     } else {
                         var error = response.errors;
@@ -246,11 +249,20 @@
                                 'invalid-feedback').html('');
                         }
 
-                        if (error.company_name) {
-                            $('#company_name').addClass('is-invalid').siblings('p').addClass(
-                                'invalid-feedback').html(error.company_name);
+                        if (error.credit_name) {
+                            $('#credit_name').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.credit_name);
                         } else {
-                            $('#company_name').removeClass('is-invalid').siblings('p').removeClass(
+                            $('#credit_name').removeClass('is-invalid').siblings('p').removeClass(
+                                'invalid-feedback').html('');
+                        }
+
+                        // ตรวจสอบ error สำหรับ image ด้วย
+                        if (error.image) {
+                            $('#imageInput').addClass('is-invalid').siblings('p').addClass(
+                                'invalid-feedback').html(error.image);
+                        } else {
+                            $('#imageInput').removeClass('is-invalid').siblings('p').removeClass(
                                 'invalid-feedback').html('');
                         }
                     }

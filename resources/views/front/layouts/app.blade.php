@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>BruGroup | Find Best Foods</title>
+    <title>BruCooking | Find Best Foods</title>
     <meta name="description" content="" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">BruGroup</a>
+                <a class="navbar-brand" href="{{ route('home') }}">BruCooking</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">

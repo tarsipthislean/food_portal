@@ -58,7 +58,6 @@ class AccountController extends Controller
     public function login()
     {
         return view('front.account.login');
-
     }
 
     public function authenticate(Request $request)
@@ -190,7 +189,6 @@ class AccountController extends Controller
 
     public function saveJob(Request $request)
     {
-        // กำหนดกฎสำหรับการ validation
         $rules = [
             'title' => 'required|min:1|max:200',
             'category' => 'required',
@@ -198,15 +196,14 @@ class AccountController extends Controller
             'vacancy' => 'required|integer',
             'location' => 'required|max:50',
             'description' => 'required',
-            'company_name' => 'required|min:1|max:75',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ตรวจสอบไฟล์รูปภาพ
+            'credit_name' => 'required|min:1|max:75',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ต้องมีรูปภาพ
         ];
-        
+
         $validator = Validator::make($request->all(), $rules);
-        
+
         if ($validator->passes()) {
-        
-            // สร้างออบเจ็กต์ Job ใหม่
+
             $job = new Job();
             $job->title = $request->title;
             $job->category_id = $request->category;
@@ -218,20 +215,20 @@ class AccountController extends Controller
             $job->benefits = $request->benefits;
             $job->keywords = $request->keywords;
             $job->experience = $request->experience;
-            $job->company_name = $request->company_name;
-            $job->company_location = $request->company_location;
-        
-            // การอัพโหลดไฟล์ภาพ
+            $job->credit_name = $request->credit_name;
+            $job->credit_email = $request->credit_email;
+
+            // อัพโหลดรูปภาพและบันทึก path
             if ($request->hasFile('image')) {
-                $imageName = time().'.'.$request->image->extension();  
-                $request->image->move(public_path('job_pic'), $imageName);  // ย้ายไฟล์ไปที่ public/job_pic
-                $job->job_image = 'job_pic/'.$imageName;  // บันทึก path ของภาพในฐานข้อมูล
+                $imageName = time() . '.' . $request->image->extension();
+                $request->image->move(public_path('job_pic'), $imageName);
+                $job->job_image = 'job_pic/' . $imageName;
             }
-        
-            $job->save();  // บันทึกข้อมูล
-        
+
+            $job->save();
+
             session()->flash('success', 'เพิ่มสูตรอาหารเรียบร้อยแล้ว!');
-        
+
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -242,8 +239,8 @@ class AccountController extends Controller
                 'errors' => $validator->errors()
             ]);
         }
-    }    
-    
+    }
+
 
     public function myJobs()
     {
@@ -286,14 +283,13 @@ class AccountController extends Controller
             'vacancy' => 'required|integer',
             'location' => 'required|max:50',
             'description' => 'required',
-            'company_name' => 'required|min:1|max:75',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ตรวจสอบไฟล์รูปภาพ
+            'credit_name' => 'required|min:1|max:75',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
-        
+
         $validator = Validator::make($request->all(), $rules);
-        
+
         if ($validator->passes()) {
-        
             $job = Job::find($id);
             $job->title = $request->title;
             $job->category_id = $request->category;
@@ -305,20 +301,20 @@ class AccountController extends Controller
             $job->benefits = $request->benefits;
             $job->keywords = $request->keywords;
             $job->experience = $request->experience;
-            $job->company_name = $request->company_name;
-            $job->company_location = $request->company_location;
-        
-            // การอัพโหลดรูปภาพ
+            $job->credit_name = $request->credit_name;
+            $job->credit_email = $request->credit_email;
+
+            // อัพโหลดรูปภาพหากมีการเลือกไฟล์ใหม่
             if ($request->hasFile('image')) {
-                $imageName = time().'.'.$request->image->extension();
-                $request->image->move(public_path('job_pic'), $imageName);  // ย้ายไฟล์ไปที่ public/job_pic
-                $job->job_image = 'job_pic/'.$imageName;  // บันทึก path ของภาพในฐานข้อมูล
+                $imageName = time() . '.' . $request->image->extension();
+                $request->image->move(public_path('job_pic'), $imageName);
+                $job->job_image = 'job_pic/' . $imageName;
             }
-        
-            $job->save();  // บันทึกข้อมูล
-        
+
+            $job->save();
+
             session()->flash('success', 'อัปเดตสูตรอาหารเรียบร้อยแล้ว!');
-        
+
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -329,7 +325,7 @@ class AccountController extends Controller
                 'errors' => $validator->errors()
             ]);
         }
-    }      
+    }
 
     public function deleteJob(Request $request)
     {

@@ -31,7 +31,7 @@
                             <div class="mb-4">
                                 <h2>ที่อยู่สูตรอาหาร</h2>
                                 <input value="{{ \Request::get('location') }}" type="text" name="location" id="location"
-                                    placeholder="ต้นกำเนิดอาหาร เช่น บุรีรัมย์" class="form-control">
+                                    placeholder="ต้นตำรับสูตรอาหาร เช่น บุรีรัมย์" class="form-control">
                             </div>
 
                             <div class="mb-4">
